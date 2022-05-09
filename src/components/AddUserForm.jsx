@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 const AddUserForm = (props) => {
     
     const {register, errors, handleSubmit} = useForm();
+    
+    const [nombreCompleto,setNombreCompleto] = useState([])
 
     const onSubmit = (data, e) => {
-        //console.log(data)
-
+        const texto = data.name + " " + data.username;
         props.addUser(data)
 
         //limpiar campos
         e.target.reset();
+        setNombreCompleto([...nombreCompleto,texto])
+        console.log(nombreCompleto)
+
+    }
+
+    const saveUsuario=()=>{
+        localStorage.setItem("usuario",nombreCompleto)
+        console.log(nombreCompleto)
     }
     
+
+
     return(
         <form onSubmit={handleSubmit(onSubmit)}>
             <label>Name</label>
@@ -34,7 +45,7 @@ const AddUserForm = (props) => {
             <div>
                 {errors?.username?.message}
             </div>
-            <button>Add new user</button>
+            <button onClick={saveUsuario}>Add new user</button>
         </form>
     );
 }
