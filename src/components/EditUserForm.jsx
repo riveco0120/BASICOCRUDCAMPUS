@@ -43,7 +43,7 @@ const EditUserForm = (props) => {
             <div>
                 {errors?.username?.message}
             </div>
-            <button>Edit user</button>
+            <button >Edit user</button>
         </form>
     );
 }
