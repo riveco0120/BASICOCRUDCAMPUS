@@ -1,22 +1,28 @@
 //Componente para agregar la fecha de creacion 
-import React from 'react'
+import React, { useState } from 'react'
 
 const FechaCreado = () => {
 
-    
+  const fechaActual =()=>{
+    let fecha= new Date();
+    var fechaNueva = fecha.getDate() + '-' + ( fecha.getMonth() + 1 ) + '-' + fecha.getFullYear();
+    var horaNueva = fecha.getHours() + ':' + fecha.getMinutes() + ':' + fecha.getSeconds();
+    return    (fechaNueva + " " + horaNueva)
+  }
+
+  let fechaIncial=fechaActual();
+
+  const [fechacreada,setFechaCreado] =useState(fechaIncial);
   
 
-    const generalFecha =()=>{
-        let fechaHora= new Date();
-        var fecha = fechaHora.getDate() + '-' + ( fechaHora.getMonth() + 1 ) + '-' + fechaHora.getFullYear();
-        var hora = fechaHora.getHours() + ':' + fechaHora.getMinutes() + ':' + fechaHora.getSeconds();
-        return (fecha + " " + hora)
+  const generalFecha =()=>{
+        var fecha = fechacreada.getDate() + '-' + ( fechacreada.getMonth() + 1 ) + '-' + fechacreada.getFullYear();
+        var hora = fechacreada.getHours() + ':' + fechacreada.getMinutes() + ':' + fechacreada.getSeconds();
+        setFechaCreado(fecha + " " + hora)
     }
 
-    let fechaActual=generalFecha()
-
     return ( <div>
-            <h6>{fechaActual}</h6>
+            <h6>{fechacreada}</h6>
     </div> );
 }
  
