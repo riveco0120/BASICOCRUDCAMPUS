@@ -1,4 +1,5 @@
 import React from 'react'
+import FechaCreado from './util/FechaCreado';
 
 const UserTable = (props) => {
 
@@ -9,6 +10,7 @@ const UserTable = (props) => {
                 <tr>
                     <th>Name</th>
                     <th>UserName</th>
+                    <th>Hora creado</th>                    
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -19,6 +21,7 @@ const UserTable = (props) => {
                         <tr key={user.id}>
                             <td> {user.name} </td>
                             <td> {user.username} </td>
+                            <td>{<FechaCreado/>}</td>                            
                             <td>
                             <button className='button muted-button'
                                 onClick={

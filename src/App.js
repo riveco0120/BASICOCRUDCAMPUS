@@ -8,7 +8,7 @@ function App() {
 
   //Informacion datos constante
   const usersData = [
-    { id: uuidv4(), name: 'Richard', username: 'riveco' },
+    { id: uuidv4(), name: 'Richard', username: 'riveco', },
     { id: uuidv4(), name: 'Sandy', username: 'sandy' },
     { id: uuidv4(), name: 'jesus', username: 'jesusmoreno' },
   ]
